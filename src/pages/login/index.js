@@ -18,7 +18,6 @@ const Login = (props) => {
         dispatch(SetAuth(true));
         localStorage.setItem('_token','22850cad');
         localStorage.setItem('_user','Admin');
-        props.isAutheticated(true);
         history.push("/dashboard");
       }
       else{
