@@ -25,13 +25,14 @@ const MovieCard = (props) => {
         <div style={{ flex: 1 }}>
           <Label as="a" color="red" ribbon>
             {props.type.charAt(0).toUpperCase() + props.type.slice(1)}
-          </Label>
+          </Label><br/>
+          <Label as='a' color='orange' ribbon='left'>
+          {props.title}
+        </Label>
           <img src={props.poster} alt="" className="poster-image" />
         </div>
         <div style={{ flex: 1 }}>
-          <Label as="a" color="green" tag style={{ marginTop: "-10px" }}>
-            {props.title}
-          </Label>
+         
 
           <div
             style={{
