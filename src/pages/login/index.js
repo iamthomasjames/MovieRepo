@@ -3,7 +3,7 @@ import "../../App.css";
 import loginBG from "../../Assets/Images/login-bg.jpg";
 import { Button, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
-import {useSelector,useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {SetAuth} from '../../store/actions/authAction'
 const Login = (props) => {
   const [username, setUsername] = useState();

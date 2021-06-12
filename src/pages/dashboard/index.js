@@ -1,6 +1,5 @@
 import "../../App.css";
 import React, { useEffect, useState } from "react";
-import { Card } from "semantic-ui-react";
 import api from "../../utils/api";
 import MovieCard from "../../components/MovieCard";
 import Searcher from "../../components/search";

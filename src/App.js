@@ -1,10 +1,9 @@
-import React, { useEffect, useState, Suspense } from "react";
+import React, { Suspense } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from "react-router-dom";
 
@@ -13,10 +12,9 @@ import logo from "./Assets/Images/logo.svg";
 import { SetAuth } from "./store/actions/authAction";
 import { useDispatch } from "react-redux";
 import { hasAuthenticated, getUsername } from "./utils/settings";
-import Footer from './components/Footer'
+import Footer from "./components/Footer";
 
 function App() {
-  const [isLogged, setIslogged] = useState(false);
   const dispatch = useDispatch();
   const Dashboard = React.lazy(() => import("./pages/dashboard"));
   const Login = React.lazy(() => import("./pages/login"));
@@ -28,15 +26,11 @@ function App() {
     window.location = "/login";
   };
 
-  const isAutheticated = (status) => {
-    setIslogged(status);
-  };
-
   return (
     <div>
       <Suspense
         fallback={
-          <div class="ui segment" style={{height:'100vh'}}>
+          <div class="ui segment" style={{ height: "100vh" }}>
             <div class="ui active dimmer">
               <div class="ui text loader">Loading</div>
             </div>
@@ -54,7 +48,9 @@ function App() {
               {localStorage.getItem("_token") && (
                 <div className="logo-container">
                   <img src={user} width="30px" height="30px" alt="user" />
-                  <span className="user-container">&nbsp;&nbsp;{getUsername()}</span>
+                  <span className="user-container">
+                    &nbsp;&nbsp;{getUsername()}
+                  </span>
                   <span
                     className="logout-container"
                     onClick={() => handleLogout()}
@@ -70,7 +66,7 @@ function App() {
                 path="/login"
                 render={(props) =>
                   !hasAuthenticated() ? (
-                    <Login {...props} isAutheticated={isAutheticated} />
+                    <Login {...props} />
                   ) : (
                     <Redirect to="/dashboard" />
                   )
@@ -87,8 +83,13 @@ function App() {
                   )
                 }
               />
+              <Route
+                exact
+                path="/"
+                render={(props) => <Redirect to="/login" />}
+              />
             </Switch>
-            <Footer/>
+            <Footer />
           </div>
         </Router>
       </Suspense>
