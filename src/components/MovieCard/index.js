@@ -71,7 +71,7 @@ const MovieCard = (props) => {
           open={open}
           //   trigger={<Button>Show Modal</Button>}
         >
-          <Modal.Header>Select a Photo</Modal.Header>
+          <Modal.Header>More Info</Modal.Header>
           <Modal.Content image>
             <Image size="medium" src={selectedMovie.Poster} wrapped />
             <Modal.Description>
