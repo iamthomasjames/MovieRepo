@@ -30,9 +30,9 @@ function App() {
     <div>
       <Suspense
         fallback={
-          <div class="ui segment" style={{ height: "100vh" }}>
-            <div class="ui active dimmer">
-              <div class="ui text loader">Loading</div>
+          <div className="ui segment" style={{ height: "100vh" }}>
+            <div className="ui active dimmer">
+              <div className="ui text loader">Loading</div>
             </div>
             <p></p>
           </div>

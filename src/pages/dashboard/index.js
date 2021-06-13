@@ -71,6 +71,7 @@ const Dashboard = () => {
                     title={item.Title}
                     id={item.imdbID}
                     type={item.Type}
+                    key={item.imdbID}
                   />
                 );
               })}
