@@ -9,13 +9,13 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Dashboard = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [loader, setLoader] = useState(true);
-  const [searchKeyword, setSearchKeyword] = useState("conjur");
+  const [searchKeyword, setSearchKeyword] = useState("the");
   const [length, setLength] = useState(2);
   const [year, setYear] = useState();
 
  
   useEffect(() => {
-    api.initailLibrary().then((res) => {
+    api.initailLibrary(searchKeyword).then((res) => {
       setSearchMovies(res.Search);
       setLoader(false);
     });

@@ -101,9 +101,9 @@
   align-items: center;
   padding-left: 30px;
   padding-right: 100px;
-  box-shadow: -2px 4px 22px -4px rgba(0,0,0,0.77);
-  -webkit-box-shadow: -2px 4px 22px -4px rgba(0,0,0,0.77);
-  -moz-box-shadow: -2px 4px 22px -4px rgba(0,0,0,0.77);
+  box-shadow: -2px 4px 22px -13px rgba(0,0,0,0.77);
+  -webkit-box-shadow: -2px 4px 22px -13px rgba(0,0,0,0.77);
+  -moz-box-shadow: -2px 4px 22px -13px rgba(0,0,0,0.77);
 }
 .heading-white {
   font-family: "Poppins", sans-serif;

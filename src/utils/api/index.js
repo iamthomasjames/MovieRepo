@@ -6,11 +6,12 @@ const getApiUrl = async () => {
 };
 
 const api = {
-  async initailLibrary() {
+  async initailLibrary(word) {
     const token = await getAuthToken();
     if (token) {
       const apiUrl = await getApiUrl();
-      return fetch(`${apiUrl}?s=con&apikey=${token}&page=1`, {
+      console.log(`${apiUrl}?s=${word}&apikey=${token}&page=1`)
+      return fetch(`${apiUrl}?s=${word}&apikey=${token}&page=1`, {
         method: "GET",
       })
         .then((response) => {
