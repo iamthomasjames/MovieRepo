@@ -45,7 +45,7 @@ const Searcher = (props) => {
         />
         <Form.Input
           fluid
-          label="Year"
+          label="Year (optional)"
           placeholder="Enter Year.."
           onChange={(e) => {
             setErrorMessage();

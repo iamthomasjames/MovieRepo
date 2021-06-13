@@ -1,3 +1,4 @@
+
 export const hasAuthenticated = async() => {
   if (await localStorage.getItem("_token")) {
     return true;
@@ -6,8 +7,8 @@ export const hasAuthenticated = async() => {
   }
 };
 
-export const getUsername = () => {
-  if (localStorage.getItem("_user")) {
+export const getUsername = async() => {
+  if (await localStorage.getItem("_user")) {
     return localStorage.getItem("_user");
   } else {
     return null;
@@ -25,3 +26,9 @@ export const getAuthToken = async () => {
         return null;
     }
 };
+
+export const removeUser = async () => {
+  localStorage.removeItem('_user');
+  localStorage.removeItem('_token');
+};
+

@@ -5,6 +5,7 @@ import { Button, Form, Message } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 import {SetAuth} from '../../store/actions/authAction'
+import { withRouter } from 'react-router-dom';
 const Login = (props) => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -18,7 +19,8 @@ const Login = (props) => {
         dispatch(SetAuth(true));
         localStorage.setItem('_token','22850cad');
         localStorage.setItem('_user','Admin');
-        history.push("/dashboard");
+        props.isAuthenticated(true);
+        history.push('/dashboard');
       }
       else{
           setErrorMessage("Incorrect login details!!")
@@ -27,6 +29,7 @@ const Login = (props) => {
       setErrorMessage("Please enter username and password!!");
     }
   };
+
 
 
   return (
@@ -80,4 +83,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default withRouter(Login);
