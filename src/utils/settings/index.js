@@ -1,5 +1,5 @@
-export const hasAuthenticated = () => {
-  if (localStorage.getItem("_token")) {
+export const hasAuthenticated = async() => {
+  if (await localStorage.getItem("_token")) {
     return true;
   } else {
     return false;

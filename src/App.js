@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -19,7 +19,17 @@ function App() {
   const Dashboard = React.lazy(() => import("./pages/dashboard"));
   const Login = React.lazy(() => import("./pages/login"));
 
-  const handleLogout = (history) => {
+  useEffect(() => {
+    hasAuthenticated().then((res) => {
+      if (res) {
+        dispatch(SetAuth(true));
+      } else {
+        dispatch(SetAuth(false));
+      }
+    });
+  }, [dispatch]);
+
+  const handleLogout = () => {
     dispatch(SetAuth(false));
     localStorage.removeItem("_token", "_user");
     localStorage.removeItem("_user");
