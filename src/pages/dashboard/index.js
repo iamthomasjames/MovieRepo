@@ -9,7 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Dashboard = () => {
   const [searchMovies, setSearchMovies] = useState([]);
   const [loader, setLoader] = useState(true);
-  const [searchKeyword, setSearchKeyword] = useState("the");
+  const [searchKeyword, setSearchKeyword] = useState("man");
   const [length, setLength] = useState(2);
   const [year, setYear] = useState();
 
@@ -20,7 +20,7 @@ const Dashboard = () => {
       setLoader(false);
     });
    
-  }, []);
+  }, [searchKeyword]);
 
   const getMovieDetails = (movies, keyword,year) => {
     setSearchMovies(movies);
